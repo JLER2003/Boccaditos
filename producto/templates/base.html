@@ -1,0 +1,49 @@
+ {% comment %} {% load static %}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Django crud</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    </head>
+    <body>
+        
+
+        <nav>
+            <ul>
+                <li>
+                    <a href="/home">Home</a>
+                </li>
+              
+                {% if user.is_authenticated %}
+                <li>
+                    <a href="/productos">Productos</a>
+                </li>
+                <li>
+                    <a href="/productos/create">Agregar producto</a>
+                </li>
+                <li>
+                    <a href="/logout">Logout</a>
+                </li>
+                {% else %}
+                <li>
+                    <a href="/signup">Signup</a>
+                </li>
+                <li>
+                    <a href="/signin">Signin</a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+
+
+        {% block content %}
+        {% endblock %}
+
+    </body>
+</html>   {% endcomment %}

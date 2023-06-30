@@ -1,0 +1,26 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<h1>Productos</h1>
+
+<ul>
+    {% for producto in productos %}
+    <li>
+       <a href="{% url 'task_detail' producto.id %}">
+        <strong>{{ producto.categoria }}</strong>
+       </a>
+        <p>{{ producto.nombre }}</p>
+        <p>{{ producto.precio }}</p> 
+        <a href="{% url 'task_detail' producto.id %}">
+            <button>Editar</button>
+        </a>
+        <form action="{% url 'delete_task' producto.id %}" method="POST" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit">Eliminar</button>
+        </form>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

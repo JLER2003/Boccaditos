@@ -1,0 +1,14 @@
+
+{% extends 'index.html' %}
+
+{% block content %}
+
+<h1>Producto</h1>
+
+<form action="/productos/create/" method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Guardar</button>
+</form>
+
+{% endblock %}
